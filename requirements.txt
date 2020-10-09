@@ -1,0 +1,8 @@
+django
+python-dotenv
+Pillow
+requests
+django-crispy-forms
+gunicorn
+django-heroku
+boto3

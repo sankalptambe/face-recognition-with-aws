@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+      <!-- FORM HERE -->
+       <form method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Upload Image</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Upload</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="content-section">
+        {% if img %}
+            <img width="100%" src="{{ img }}">
+
+            <h3 class='mt-2'>{{ plate }}</h3>
+        {% else %}
+            <p>Kindly upload an image with a clear license plate...</p>
+        {% endif %}
+
+    </div>
+
+{% endblock content %}
