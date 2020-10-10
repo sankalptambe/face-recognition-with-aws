@@ -16,12 +16,17 @@
     </div>
 
     <div class="content-section">
-        {% if img %}
+        {% if data %}
             <img width="100%" src="{{ img }}">
 
-            <h3 class='mt-2'>{{ plate }}</h3>
+            <h3>Top matches : </h3>
+
+            {% for key,value in data.FaceMatches.items %}
+                <p class='mt-2'>{{ value.name }} ( {{ value.confidence }}% match )</p> <br>
+
+            {% endfor %}
         {% else %}
-            <p>Kindly upload an image with a clear license plate...</p>
+            <p>Kindly upload an image...</p>
         {% endif %}
 
     </div>
